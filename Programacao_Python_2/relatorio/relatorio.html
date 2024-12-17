@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Gilearde Jacinto Fagundes">
+<meta name="author" content="Economista : 28226 , CNPI-P : 3397 - Gilearde J Fagundes">
 
 <title>Relatório de Reservas Internacionais (BRL/USD)</title>
 <style>
@@ -93,7 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Gilearde Jacinto Fagundes </p>
+             <p>Economista : 28226 , CNPI-P : 3397 - Gilearde J Fagundes </p>
           </div>
   </div>
     
@@ -107,7 +107,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>API do Banco Central do Brasil e produzir um gráfico com sua evolução recente. :</p>
+<<<<<<< HEAD
 <div id="d77901cc" class="cell" data-execution_count="1">
+=======
+<div id="49a2d862" class="cell" data-execution_count="1">
+>>>>>>> 9d87e2d (relatorio_new)
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar bibliotecas</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bcb <span class="im">import</span> sgs</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -116,7 +120,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dados" class="level2">
 <h2 class="anchored" data-anchor-id="dados">Dados</h2>
 <p>Em seguida é necessário identificar o código da série temporal desejada no sistema SGS/BCB e utilizar este código para obter os dados com a bibliotecas <code>python-bcb</code>:</p>
+<<<<<<< HEAD
 <div id="e4aa1345" class="cell" data-execution_count="2">
+=======
+<div id="dc19df3f" class="cell" data-execution_count="2">
+>>>>>>> 9d87e2d (relatorio_new)
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coleta de dados</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> sgs.get(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    codes<span class="op">=</span>{<span class="st">"reserva"</span>: <span class="dv">13982</span>},</span>
@@ -125,7 +133,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Os dados brutos obtidos no SGS/BCB são exibidos abaixo:</p>
+<<<<<<< HEAD
 <div id="c38b36aa" class="cell" data-execution_count="3">
+=======
+<div id="5546a171" class="cell" data-execution_count="3">
+>>>>>>> 9d87e2d (relatorio_new)
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dados.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -170,14 +182,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Abaixo criamos uma colunna adicional com a informação do índice da tabela:</p>
+<<<<<<< HEAD
 <div id="518a4919" class="cell" data-execution_count="4">
+=======
+<div id="766bfad3" class="cell" data-execution_count="4">
+>>>>>>> 9d87e2d (relatorio_new)
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> dados.assign(data <span class="op">=</span> dados.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="visualização-de-dados" class="level2">
 <h2 class="anchored" data-anchor-id="visualização-de-dados">Visualização de Dados</h2>
 <p>Por fim, pode ser utilizado um pacote de visualização de dados como o <code>plotnine</code> para gerar um gráfico de linha com a série das Reservas internacionais sob o conceito de liquidez total.:</p>
+<<<<<<< HEAD
 <div id="eb2caffe" class="cell" data-execution_count="5">
+=======
+<div id="23821b88" class="cell" data-execution_count="5">
+>>>>>>> 9d87e2d (relatorio_new)
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de linha</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>chart<span class="op">=</span>p9.ggplot(data <span class="op">=</span> dados) <span class="op">+\</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  p9.aes(x <span class="op">=</span> <span class="st">"data"</span>, y <span class="op">=</span> <span class="st">"reserva"</span>) <span class="op">+\</span></span>
@@ -191,7 +211,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">+\</span></span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  p9.theme_light()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<<<<<<< HEAD
 <div id="3a2ab1d1" class="cell" data-execution_count="6">
+=======
+<div id="b92ab28c" class="cell" data-execution_count="6">
+>>>>>>> 9d87e2d (relatorio_new)
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>

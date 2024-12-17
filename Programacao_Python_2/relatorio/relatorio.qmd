@@ -1,6 +1,6 @@
 ---
 title: "Relatório de Reservas Internacionais (BRL/USD)"
-author: "Gilearde Jacinto Fagundes "
+author: " Economista : 28226 , CNPI-P : 3397 - Gilearde J Fagundes "
 format: html
 jupyter: python3
 ---
