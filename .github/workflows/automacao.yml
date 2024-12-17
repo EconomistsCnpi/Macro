@@ -37,10 +37,10 @@ jobs:
                 poetry run quarto render Programacao_Python_2/relatorio/relatorio.qmd
 
             - name: Commit & Push
-              uses: EconomistsCnpi/github-push-action@v3
+              uses: stefanzweifel/git-auto-commit-action@v5
               with:
                 commit_message: Atualização de relatorio de dashboard
-                
+
 
 
 
