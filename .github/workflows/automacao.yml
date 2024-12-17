@@ -30,6 +30,10 @@ jobs:
               with:
                 version: 1.6.37
 
+            - name: Instalar pacotes Python
+              run: |
+                  poetry install --no-root
+                  poetry add pyyaml jupyter
 
             - name: Atualização de relatório
               run: |
