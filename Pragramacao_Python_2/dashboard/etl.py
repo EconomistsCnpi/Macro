@@ -3,8 +3,6 @@ import dbnomics
 import os
 
 # Coleta de dados ----
-#https://api.db.nomics.world/v21/series/WB/WDI?dimensions=%7B...
-#&start_date=2015-01-01&end_date=2024-12-31&observations=1
 
 # Importar os dados da DBNOMICS (fonte Banco Mundial - WDI)
 dados_brutos = dbnomics.fetch_series_by_api_link(
