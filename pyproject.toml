@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "analise macro"
+version = "0.1.0"
+description = "n/a"
+authors = ["EconomistsCnpi <gileardejf83@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.3"
+plotnine = "^0.14.4"
+python-bcb = "^0.3.0"
+shiny = "^1.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

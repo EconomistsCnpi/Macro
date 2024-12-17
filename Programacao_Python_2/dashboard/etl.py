@@ -47,8 +47,8 @@ dados = (
  .dropna()
  .assign(
      valor = lambda x: x.valor.astype(float),
-     pais = lambda x: x.pais.astype(str)
-     )
+     pais = lambda x: x.pais.astype(str),
+     ).query('data >= "2006"')
  )
 
 
@@ -56,4 +56,4 @@ dados = (
 
 # Salva arquivo CSV
 if not os.path.exists("dados"): os.mkdir("dados")
-dados.to_csv(path_or_buf = "dados/dados.csv", index = False)
+dados.to_csv(path_or_buf = "Programacao_Python_2/dados/dados.csv", index = False)

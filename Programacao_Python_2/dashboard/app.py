@@ -4,7 +4,7 @@ import pandas as pd
 import plotnine as p9
 
 # Dados
-dados = pd.read_csv("dados/dados.csv", converters = {"data": pd.to_datetime})
+dados = pd.read_csv("Programacao_Python_2/dados/dados.csv", converters = {"data": pd.to_datetime})
 
 # Interface do Usuário
 app_ui = ui.page_sidebar(
