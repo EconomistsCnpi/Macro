@@ -1,6 +1,6 @@
 ---
 title: "Relatório de Câmbio (BRL/USD)"
-author: "Fernando da Silva"
+author: "Gilearde Jacinto Fagundes"
 format: html
 jupyter: python3
 ---
