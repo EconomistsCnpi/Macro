@@ -55,5 +55,6 @@ dados = (
 # Salvar dados -----
 
 # Salva arquivo CSV
-if not os.path.exists("dados"): os.mkdir("dados")
-dados.to_csv(path_or_buf = "Programacao_Python_2/dados/dados.csv", index = False)
+if not os.path.exists("dashboard"): os.mkdir("dashboard")
+if not os.path.exists("dashboard/dados"): os.mkdir("dashboard/dados")
+dados.to_csv(path_or_buf = "dashboard/dados/dados.csv", index = False)
