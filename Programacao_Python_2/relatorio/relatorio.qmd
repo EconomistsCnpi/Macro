@@ -61,7 +61,7 @@ chart=p9.ggplot(data = dados) +\
   p9.geom_line(color = "darkblue", size = 1) +\
   p9.scale_x_date(date_labels = "%Y") +\
   p9.ggtitle("Reservas internacionais") +\
-  p9.ylab("BRL/USD") +\
+  p9.ylab("USD") +\
   p9.xlab("") +\
   p9.labs(
     caption = "Nota: Reservas Internacionais| Dados: BCB | Elaboração: Gilearde Jacinto Fagundes"
