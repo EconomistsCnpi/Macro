@@ -8,7 +8,7 @@
 
 <meta name="author" content="Gilearde J Fagundes,CNPI-P(3397), Economista (28226)">
 
-<title>Relatório de Reservas Internacionais (BRL/USD)</title>
+<title>Relatório de Reservas Internacionais (USD)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Relatório de Reservas Internacionais (BRL/USD)</h1>
+<h1 class="title">Relatório de Reservas Internacionais (USD)</h1>
 </div>
 
 
@@ -106,8 +106,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>API do Banco Central do Brasil e produzir um gráfico com sua evolução recente. :</p>
-<div id="3d54361f" class="cell" data-execution_count="1">
+<p>Dados coletados da API do Banco Central do Brasil.</p>
+<div id="81f19f5b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar bibliotecas</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bcb <span class="im">import</span> sgs</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -115,8 +115,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="dados" class="level2">
 <h2 class="anchored" data-anchor-id="dados">Dados</h2>
-<p>Em seguida é necessário identificar o código da série temporal desejada no sistema SGS/BCB e utilizar este código para obter os dados com a bibliotecas <code>python-bcb</code>:</p>
-<div id="179879e2" class="cell" data-execution_count="2">
+<p>Utilização da library SGS/BCB :</p>
+<div id="38e17ec6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coleta de dados</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> sgs.get(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    codes<span class="op">=</span>{<span class="st">"reserva"</span>: <span class="dv">13982</span>},</span>
@@ -125,8 +125,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Os dados brutos obtidos no SGS/BCB são exibidos abaixo:</p>
-<div id="502cac7e" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dados.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cd838083" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dados</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
@@ -163,40 +163,76 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td data-quarto-table-cell-role="th">2014-01-08</td>
 <td>375730</td>
 </tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-12-09</td>
+<td>367765</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-12-10</td>
+<td>367304</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-12-11</td>
+<td>367457</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-12-12</td>
+<td>367012</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-12-13</td>
+<td>366225</td>
+</tr>
 </tbody>
 </table>
 
+<p>2750 rows × 1 columns</p>
 </div>
 </div>
 </div>
-<p>Abaixo criamos uma colunna adicional com a informação do índice da tabela:</p>
-<div id="0c4222ac" class="cell" data-execution_count="4">
+<p>Valores e datas da maxima e minima das Reservas Internacionais Liquidas Totais:</p>
+<div id="898ed54d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> dados.assign(data <span class="op">=</span> dados.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="7b3c437a" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>menor_valor <span class="op">=</span> dados.reserva.<span class="bu">min</span>() </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data_menor_valor <span class="op">=</span> dados.reserva.idxmin().date()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>maior_valor<span class="op">=</span>dados.reserva.<span class="bu">max</span>()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>data_maior_valor<span class="op">=</span>dados.reserva.idxmax().date()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"O maior valor da reserva foi </span><span class="sc">{</span>maior_valor<span class="sc">}</span><span class="ss"> em </span><span class="sc">{</span>data_maior_valor<span class="sc">}</span><span class="ss"> e o menor valor foi </span><span class="sc">{</span>menor_valor<span class="sc">}</span><span class="ss"> em  </span><span class="sc">{</span>data_menor_valor<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>O maior valor da reserva foi 401630 em 2019-08-23 e o menor valor foi 327352 em  2022-10-20</code></pre>
+</div>
 </div>
 </section>
 <section id="visualização-de-dados" class="level2">
 <h2 class="anchored" data-anchor-id="visualização-de-dados">Visualização de Dados</h2>
-<p>Por fim, pode ser utilizado um pacote de visualização de dados como o <code>plotnine</code> para gerar um gráfico de linha com a série das Reservas internacionais sob o conceito de liquidez total.:</p>
-<div id="8abbcdc9" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de linha</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>chart<span class="op">=</span>p9.ggplot(data <span class="op">=</span> dados) <span class="op">+\</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  p9.aes(x <span class="op">=</span> <span class="st">"data"</span>, y <span class="op">=</span> <span class="st">"reserva"</span>) <span class="op">+\</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  p9.geom_line(color <span class="op">=</span> <span class="st">"darkblue"</span>, size <span class="op">=</span> <span class="dv">1</span>) <span class="op">+\</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  p9.scale_x_date(date_labels <span class="op">=</span> <span class="st">"%Y"</span>) <span class="op">+\</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  p9.ggtitle(<span class="st">"Reservas internacionais"</span>) <span class="op">+\</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  p9.ylab(<span class="st">"BRL/USD"</span>) <span class="op">+\</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  p9.xlab(<span class="st">""</span>) <span class="op">+\</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  p9.labs(</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    caption <span class="op">=</span> <span class="st">"Nota: Reservas Internacionais| Dados: BCB | Elaboração: Gilearde Jacinto Fagundes"</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">+\</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  p9.theme_light()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Gráfico de linha com a série das Reservas Internacionais sob o conceito de Liquidez Total.:</p>
+<div id="4b0ee905" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de linha</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>chart<span class="op">=</span>p9.ggplot(data <span class="op">=</span> dados) <span class="op">+\</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  p9.aes(x <span class="op">=</span> <span class="st">"data"</span>, y <span class="op">=</span> <span class="st">"reserva"</span>) <span class="op">+\</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  p9.geom_line(color <span class="op">=</span> <span class="st">"darkblue"</span>, size <span class="op">=</span> <span class="dv">1</span>) <span class="op">+\</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  p9.scale_x_date(date_labels <span class="op">=</span> <span class="st">"%Y"</span>) <span class="op">+\</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  p9.ggtitle(<span class="st">"Reservas internacionais"</span>) <span class="op">+\</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  p9.ylab(<span class="st">"BRL/USD"</span>) <span class="op">+\</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  p9.xlab(<span class="st">""</span>) <span class="op">+\</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  p9.labs(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    caption <span class="op">=</span> <span class="st">"Nota: Reservas Internacionais| Dados: BCB | Elaboração: Gilearde Jacinto Fagundes"</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">+\</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  p9.theme_light()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="402ba9af" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="24e7ec58" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="relatorio_files/figure-html/cell-7-output-1.png" width="672" height="480" class="figure-img"></p>
+<p><img src="relatorio_files/figure-html/cell-8-output-1.png" width="672" height="480" class="figure-img"></p>
 </figure>
 </div>
 </div>
