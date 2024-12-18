@@ -565,6 +565,25 @@ docs = ["ipython", "matplotlib", "numpydoc", "sphinx"]
 tests = ["pytest", "pytest-cov", "pytest-xdist"]
 
 [[package]]
+name = "dbnomics"
+version = "1.2.5"
+description = "DBnomics Python client"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "dbnomics-1.2.5-py3-none-any.whl", hash = "sha256:48b8b58770814ffa0ce36500258edc9f57c41c29c8fff155170975546045a2f7"},
+    {file = "dbnomics-1.2.5.tar.gz", hash = "sha256:78441cd607f329392f325119305a186c84f112bf790c9b1ded046902f198ac61"},
+]
+
+[package.dependencies]
+httpx = "*"
+pandas = "*"
+tenacity = "*"
+
+[package.extras]
+dev = ["black", "mypy", "pip-tools", "pre-commit", "pytest", "pytest-httpserver", "ruff", "vermin"]
+
+[[package]]
 name = "debugpy"
 version = "1.8.11"
 description = "An implementation of the Debug Adapter Protocol for Python"
@@ -3323,6 +3342,21 @@ develop = ["colorama", "cython (>=3.0.10)", "cython (>=3.0.10,<4)", "flake8", "i
 docs = ["ipykernel", "jupyter-client", "matplotlib", "nbconvert", "nbformat", "numpydoc", "pandas-datareader", "sphinx"]
 
 [[package]]
+name = "tenacity"
+version = "9.0.0"
+description = "Retry code until it succeeds"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "tenacity-9.0.0-py3-none-any.whl", hash = "sha256:93de0c98785b27fcf659856aa9f54bfbd399e29969b0621bc7f762bd441b4539"},
+    {file = "tenacity-9.0.0.tar.gz", hash = "sha256:807f37ca97d62aa361264d497b0e31e92b8027044942bfa756160d908320d73b"},
+]
+
+[package.extras]
+doc = ["reno", "sphinx"]
+test = ["pytest", "tornado (>=4.5)", "typeguard"]
+
+[[package]]
 name = "terminado"
 version = "0.18.1"
 description = "Tornado websocket backend for the Xterm.js Javascript terminal emulator library."
@@ -3716,4 +3750,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "eaab84754f9f0c92d386ebb47e32d3065568830926c1fa840b54aeb6ec83c07a"
+content-hash = "88db1139655d6b7111f8e4a083f6b9d9c7e1140d0ca9f90867badc554e56a7f2"
