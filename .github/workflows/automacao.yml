@@ -42,7 +42,7 @@ jobs:
             - name: Deploy da dashboard
               run:
                  rsconnect add --account ${{ secrets.ACCOUNT }} --name ${{ secrets.NAME }} --token ${{ secrets.TOKEN }} --secret ${{ secrets.SECRET }} 
-                 rsconnect deploy shiny Programacao_Python_2/dashboard --title macro_copa
+                 rsconnect deploy shiny Programacao_Python_2/dashboard --title 'macro_copa'
 
             - name: Commit & Push
               uses: stefanzweifel/git-auto-commit-action@v5
