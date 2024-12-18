@@ -44,10 +44,13 @@ jobs:
               run: |
                    pip install shiny rsconnect-python
             
-            - name: Deploy da dashboard
+            - name: Adicionar conta rsconnect
               run:
                  poetry run rsconnect add --account ${{ secrets.ACCOUNT }} --name ${{ secrets.NAME }} --token ${{ secrets.TOKEN }} --secret ${{ secrets.SECRET }} 
-                 poetry run rsconnect deploy shiny dashboard --name economistscnpi --title Macro Copa
+                 
+            - name: Deploy da dashboard
+              run:
+                 poetry run rsconnect deploy shiny dashboard --name economistscnpi --title 'Macro Copa'     
 
             - name: Commit & Push
               uses: stefanzweifel/git-auto-commit-action@v5
