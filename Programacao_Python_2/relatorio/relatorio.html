@@ -67,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="relatorio_files/libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="relatorio_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="relatorio_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="relatorio_files/libs/bootstrap/bootstrap-c00a52b063f84ab397db1dafa12a47fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="relatorio_files/libs/bootstrap/bootstrap-fe7cc58d40283c429ffb0d475180d1d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -107,14 +107,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Dados coletados da API do Banco Central do Brasil.</p>
+<<<<<<< HEAD
 <div id="0c97a8b7" class="cell" data-execution_count="1">
+=======
+<div id="f8206d15" class="cell" data-execution_count="1">
+>>>>>>> 80977d0 (Reserva Internacional)
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar bibliotecas</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bcb <span class="im">import</span> sgs</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotnine <span class="im">as</span> p9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Utilização da library SGS/BCB :</p>
+<<<<<<< HEAD
 <div id="ca49071c" class="cell" data-execution_count="2">
+=======
+<div id="fb73426f" class="cell" data-execution_count="2">
+>>>>>>> 80977d0 (Reserva Internacional)
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coleta de dados</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> sgs.get(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    codes<span class="op">=</span>{<span class="st">"reserva"</span>: <span class="dv">13621</span>},</span>
@@ -123,7 +131,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Os dados brutos obtidos no SGS/BCB são exibidos abaixo:</p>
+<<<<<<< HEAD
 <div id="2b109b94" class="cell" data-execution_count="3">
+=======
+<div id="c37b18b0" class="cell" data-execution_count="3">
+>>>>>>> 80977d0 (Reserva Internacional)
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dados</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -193,10 +205,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Valores e datas da maxima e minima das Reservas Internacionais Totais:</p>
+<<<<<<< HEAD
 <div id="573c74d9" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> dados.assign(data <span class="op">=</span> dados.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="9791fe49" class="cell" data-execution_count="5">
+=======
+<div id="ebb213d9" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> dados.assign(data <span class="op">=</span> dados.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fc1d6293" class="cell" data-execution_count="5">
+>>>>>>> 80977d0 (Reserva Internacional)
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>menor_valor <span class="op">=</span> dados.reserva.<span class="bu">min</span>() </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data_menor_valor <span class="op">=</span> dados.reserva.idxmin().date()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>maior_valor<span class="op">=</span>dados.reserva.<span class="bu">max</span>()</span>
@@ -208,7 +227,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Gráfico de linha com a série das Reservas Internacionais Totais:</p>
+<<<<<<< HEAD
 <div id="dac612f2" class="cell" data-execution_count="6">
+=======
+<div id="dd4a2d87" class="cell" data-execution_count="6">
+>>>>>>> 80977d0 (Reserva Internacional)
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de linha</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>chart<span class="op">=</span>p9.ggplot(data <span class="op">=</span> dados) <span class="op">+\</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  p9.aes(x <span class="op">=</span> <span class="st">"data"</span>, y <span class="op">=</span> <span class="st">"reserva"</span>) <span class="op">+\</span></span>
@@ -222,7 +245,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">+\</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  p9.theme_light()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<<<<<<< HEAD
 <div id="c7d2bc10" class="cell" data-execution_count="7">
+=======
+<div id="c8cb69cb" class="cell" data-execution_count="7">
+>>>>>>> 80977d0 (Reserva Internacional)
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
