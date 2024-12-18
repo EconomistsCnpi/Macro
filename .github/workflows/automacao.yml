@@ -39,6 +39,10 @@ jobs:
               run: |
                 poetry config virtualenvs.prefer-active-python true
                 poetry run quarto render Programacao_Python_2/relatorio/relatorio.qmd
+            - name: Install shiny
+              run: |
+                   pip install shiny rsconnect-python
+            
             - name: Deploy da dashboard
               run:
                  rsconnect add --account ${{ secrets.ACCOUNT }} --name ${{ secrets.NAME }} --token ${{ secrets.TOKEN }} --secret ${{ secrets.SECRET }} 
