@@ -53,7 +53,7 @@ app_ui = ui.page_sidebar(
             ),
     ),
 
-    title = ui.h2(ui.strong("⚽Macro Copa"))
+    title = ui.h2(ui.strong("Macro Copa"))
 )
 
 
