@@ -1,11 +1,11 @@
 ---
-title: "Relatório de Reservas Internacionais (BRL/USD)"
+title: "Relatório de Reservas Internacionais (USD)"
 author: "Gilearde J Fagundes,CNPI-P(3397), Economista (28226)" 
 format: html
 jupyter: python3
 ---
 
- API do Banco Central do Brasil e produzir um gráfico com sua evolução recente. :
+  Dados coletados da API do Banco Central do Brasil.
 
 ```{python}
 # Importar bibliotecas
@@ -16,7 +16,7 @@ import plotnine as p9
 
 ## Dados
 
-Em seguida é necessário identificar o código da série temporal desejada no sistema SGS/BCB e utilizar este código para obter os dados com a bibliotecas `python-bcb`:
+Utilização da library SGS/BCB :
 
 ```{python}
 # Coleta de dados
@@ -30,18 +30,29 @@ dados = sgs.get(
 Os dados brutos obtidos no SGS/BCB são exibidos abaixo:
 
 ```{python}
-dados.head()
+dados
 ```
 
-Abaixo criamos uma colunna adicional com a informação do índice da tabela:
+
+
+Valores e datas da maxima e minima das Reservas Internacionais Liquidas Totais:
 
 ```{python}
 dados = dados.assign(data = dados.index)
 ```
+```{python}
+menor_valor = dados.reserva.min() 
+data_menor_valor = dados.reserva.idxmin().date()
+maior_valor=dados.reserva.max()
+data_maior_valor=dados.reserva.idxmax().date()
+
+print(f"O maior valor da reserva foi {maior_valor} em {data_maior_valor} e o menor valor foi {menor_valor} em  {data_menor_valor}")
+
+```
 
 ## Visualização de Dados
 
-Por fim, pode ser utilizado um pacote de visualização de dados como o `plotnine` para gerar um gráfico de linha com a série das Reservas internacionais sob o conceito de liquidez total.:
+ Gráfico de linha com a série das Reservas Internacionais sob o conceito de Liquidez Total.:
 
 ```{python}
 # Gráfico de linha
