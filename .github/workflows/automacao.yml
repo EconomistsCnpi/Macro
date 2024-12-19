@@ -32,7 +32,11 @@ jobs:
 
             - name: Instalar Jupyter
               run: |
-                poetry add jupyter              
+                poetry add jupyter      
+            
+            - name: Instalar Jupyter e PyYAML
+              run: |
+                poetry add jupyter pyyaml    
 
             - name: Atualização de relatório
               run: |
