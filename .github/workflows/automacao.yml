@@ -1,4 +1,4 @@
-name: Automação de relatório/dashbord
+name: Automação de relatório/dashboard
 on:
     push:
         branches: ['main']
@@ -15,40 +15,35 @@ jobs:
             - name: Instalar Python
               uses: actions/setup-python@v5
               with:
-                python-version: 3.12.3
+                python-version: '3.12.3'  # Altere para 3.11 se necessário
 
             - name: Instalar Poetry
               uses: snok/install-poetry@v1
               with:
-                version: 1.8.5                     
+                version: 1.8.5
+
+            - name: Instalar pacotes Python
+              run: poetry install --no-root
 
             - name: Instalar Quarto
               uses: quarto-dev/quarto-actions/setup@v2
               with:
                 version: 1.6.37
-            
-            - name: Verificar Quarto
-              run: quarto --version   
 
-            - name: Instalar Jupyter
-              run: |
-                poetry add jupyter      
-            
+            - name: Verificar Quarto
+              run: quarto --version
+
             - name: Instalar Jupyter e PyYAML
               run: |
-                poetry add jupyter pyyaml    
+                poetry add jupyter pyyaml
 
             - name: Atualização de relatório
               run: |
                 poetry config virtualenvs.prefer-active-python true
                 poetry run quarto render Programacao_Python_2/relatorio/relatorio.qmd
 
-            - name: Install shiny
-              run: |
-                   pip install shiny rsconnect-python
-                   
-            - name: etl.py
-              run: 
+            - name: Executar ETL
+              run:
                 poetry run python dashboard/etl.py
 
             - name: Adicionar conta rsconnect
@@ -62,10 +57,4 @@ jobs:
             - name: Commit & Push
               uses: stefanzweifel/git-auto-commit-action@v5
               with:
-                commit_message: Atualização de relatorio de dashboard
-
-
-
-
-
-
+                commit_message: Atualização de relatorio de dashboard  
