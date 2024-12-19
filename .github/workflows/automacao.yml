@@ -20,10 +20,7 @@ jobs:
             - name: Instalar Poetry
               uses: snok/install-poetry@v1
               with:
-                version: 1.8.5
-
-            - name: Instalar pacotes Python
-              run: poetry install --no-root            
+                version: 1.8.5                     
 
             - name: Instalar Quarto
               uses: quarto-dev/quarto-actions/setup@v2
