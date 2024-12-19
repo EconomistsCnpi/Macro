@@ -1,4 +1,4 @@
-python == "3.12.3"
+python == "3.11"
 pandas == "2.2.3"
 plotnine == "0.14.4"
 python-bcb == "0.3.0"
