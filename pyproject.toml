@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12.3"
 pandas = "^2.2.3"
 plotnine = "^0.14.4"
 python-bcb = "^0.3.0"
