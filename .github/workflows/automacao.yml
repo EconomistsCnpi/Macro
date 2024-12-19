@@ -29,12 +29,7 @@ jobs:
             
             - name: Verificar Quarto
               run: quarto --version    
-
-            - name: Instalar pacotes Python
-              run: |
-                  poetry install --no-root
-                  poetry add pyyaml jupyter
-
+            
             - name: Atualização de relatório
               run: |
                 poetry config virtualenvs.prefer-active-python true
