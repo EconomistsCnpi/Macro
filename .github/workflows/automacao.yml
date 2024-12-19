@@ -23,17 +23,15 @@ jobs:
                 version: 1.8.5
 
             - name: Instalar pacotes Python
-              run: poetry install --no-root
-
-            - name: Instalar pacotes Python e adicionais
-              run: |
-                  poetry install --no-root
-                  poetry add pyyaml jupyter shiny rsconnect-python
+              run: poetry install --no-root            
 
             - name: Instalar Quarto
               uses: quarto-dev/quarto-actions/setup@v2
               with:
                 version: 1.6.37
+            
+            - name: Verificar Quarto
+              run: quarto --version    
 
             - name: Instalar pacotes Python
               run: |
