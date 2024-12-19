@@ -15,6 +15,7 @@ dbnomics = "^1.2.5"
 jupyter = "^1.1.1"
 python-bcb = "^0.3.0"
 rsconnect-python = "^1.24.0"
+pyyaml = "^6.0.2"
 
 
 [build-system]
