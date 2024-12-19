@@ -28,8 +28,12 @@ jobs:
                 version: 1.6.37
             
             - name: Verificar Quarto
-              run: quarto --version    
-            
+              run: quarto --version   
+
+            - name: Instalar Jupyter
+              run: |
+                poetry add jupyter              
+
             - name: Atualização de relatório
               run: |
                 poetry config virtualenvs.prefer-active-python true
