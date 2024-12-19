@@ -59,7 +59,7 @@ jobs:
 
             - name: Deploy da dashboard
               run:
-                 poetry run rsconnect deploy shiny dashboard --name economistscnpi_v2 --title 'Macro Copa'     
+                 poetry run rsconnect deploy shiny dashboard --name economistscnpi --title 'Macro Copa'     
 
             - name: Commit & Push
               uses: stefanzweifel/git-auto-commit-action@v5
