@@ -15,13 +15,15 @@ jobs:
             - name: Instalar Python
               uses: actions/setup-python@v5
               with:
-                python-version: '3.12.3'  # Altere para 3.11 se necessário
+                python-version: '3.12'  # Altere para 3.11 se necessário
 
             - name: Instalar Poetry
               uses: snok/install-poetry@v1
               with:
                 version: 1.8.5
-            
+            - name: Instalar pacotes Python
+              run: poetry install --no-root
+
             - name: Instalar Quarto
               uses: quarto-dev/quarto-actions/setup@v2
               with:
@@ -37,7 +39,7 @@ jobs:
             - name: Atualização de relatório
               run: |
                 poetry config virtualenvs.prefer-active-python true
-                poetry run quarto render Programacao_Python_2/relatorio/relatorio.qmd
+                poetry run quarto render relatorio/relatorio.qmd
 
             - name: Executar ETL
               run:
@@ -54,4 +56,4 @@ jobs:
             - name: Commit & Push
               uses: stefanzweifel/git-auto-commit-action@v5
               with:
-                commit_message: Atualização de relatorio de dashboard  
+                commit_message: Atualização de relatorio e dashboard  
