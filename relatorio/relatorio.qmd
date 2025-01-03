@@ -6,14 +6,14 @@ jupyter: python3
 ---
   Dados coletados da API do Banco Central do Brasil.
 ```{python}
-# Importar bibliotecas
+# Import Librarys
 from bcb import sgs
 import pandas as pd
 import plotnine as p9
 ```
 Utilização da library SGS/BCB :
 ```{python}
-# Coleta de dados
+# Collect data
 dados = sgs.get(
     codes={"reserva": 13621},
     start=pd.to_datetime('2014-01-01'),
@@ -39,7 +39,7 @@ print(f"O maior valor da reserva foi {maior_valor} em {data_maior_valor} e o men
 ```
  Gráfico de linha com a série das Reservas Internacionais  Totais:
 ```{python}
-# Gráfico de linha
+# Line Graph
 chart=p9.ggplot(data = dados) +\
   p9.aes(x = "data", y = "reserva") +\
   p9.geom_line(color = "darkblue", size = 1) +\
